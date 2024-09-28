@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,13 +12,14 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('frontend.home');
+        $categories= Category::select()->orderBy('id','desc')->get();
+        return view('frontend.home',compact('categories'));
     }
 
-    public function shop()
-    {
-        return view('frontend.shop');
-    }
+    // public function shop()
+    // {
+    //     return view('frontend.shop');
+    // }
 
     public function product()
     {

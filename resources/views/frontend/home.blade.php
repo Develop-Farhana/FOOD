@@ -143,60 +143,19 @@
         <section id="categories" class="pb-0 gray-bg">
             <h2 class="title">Categories</h2>
             <div class="landing-categories owl-carousel">
+                @foreach ($categories as $category)
                 <div class="item">
                     <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/vegetables.jpg')}}">
+                        <img src="{{asset('frontend/img/'.$category->image.'')}}">
                         <div class="card-img-overlay d-flex align-items-center justify-content-center">
                             <!-- <h4 class="card-title">Vegetables</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Vegetables</a>
+                            <a href="{{route('single.category',$category->id)}}" class="btn btn-primary btn-lg">{{$category->name}}</a>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/fruits.jpg')}}">
-                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <!-- <h4 class="card-title">Fruits</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Fruits</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/meats.jpg')}}">
-                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <!-- <h4 class="card-title">Meats</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Meats</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/fish.jpg')}}">
-                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <!-- <h4 class="card-title">Fishes</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Fishes</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/frozen.jpg')}}">
-                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <!-- <h4 class="card-title">Frozen Foods</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Frozen Foods</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card rounded-0 border-0 text-center">
-                        <img src="{{asset('frontend/img/package.jpg')}}">
-                        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                            <!-- <h4 class="card-title">Package</h4> -->
-                            <a href="shop.html" class="btn btn-primary btn-lg">Package</a>
-                        </div>
-                    </div>
-                </div>
+
+                @endforeach
+
             </div>
         </section>
     </div>

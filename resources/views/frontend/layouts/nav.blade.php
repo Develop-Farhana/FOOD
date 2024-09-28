@@ -16,7 +16,7 @@
                     <!-- Navbar Menu -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{route('shop')}}" class="nav-link">Shop</a>
+                            <a href="{{route('products.shop')}}" class="nav-link">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('register')}}" class="nav-link">Register</a>
