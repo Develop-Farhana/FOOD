@@ -47,8 +47,21 @@ class ProductController extends Controller
     public  function shop(){
         $categories= Category::select()->orderBy('id','desc')->get();
 
+        $mostWanted=Product::select()->orderBy('name','desc')->take(5)->get();
 
-        return view('frontend.products.shop', compact('categories'));
+        $vegetables=Product::select()->where('category_id',"=",3)
+        ->orderBy('name','desc')->take(5)->get();
+
+        $meats=Product::select()->where('category_id',"=",1)
+        ->orderBy('name','desc')->take(5)->get();
+
+        $fishes=Product::select()->where('category_id',"=",2)
+        ->orderBy('name','desc')->take(5)->get();
+
+        $fruits=Product::select()->where('category_id',"=",4)
+        ->orderBy('name','desc')->take(5)->get();
+
+        return view('frontend.products.shop', compact('categories','mostWanted','vegetables','meats'));
     }
 
 
