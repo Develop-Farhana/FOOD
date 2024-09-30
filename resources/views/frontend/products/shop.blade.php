@@ -70,13 +70,13 @@
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            <a href="{{route('product')}}">Product Title</a>
+                                            <a href="#">Product Title</a>
                                         </h4>
                                         <div class="card-price">
                                             <span class="discount">Rp. 300.000</span>
                                             <span class="reguler">Rp. 200.000</span>
                                         </div>
-                                        <a href="{{route('product')}}" class="btn btn-block btn-primary">
+                                        <a href="#" class="btn btn-block btn-primary">
                                             Add to Cart
                                         </a>
 

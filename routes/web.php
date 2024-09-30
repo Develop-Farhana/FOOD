@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('home',[HomeController::class,'home']);
-// Route::get('shop',[HomeController::class,'shop'])->name('shop');
-Route::get('product-detail',[HomeController::class,'product'])->name('product');
+
+// Route::get('product-detail',[HomeController::class,'product'])->name('product');
 Route::get('cart',[HomeController::class,'cart'])->name('cart');
 
 Route::get('checkout',[HomeController::class,'checkout'])->name('checkout');

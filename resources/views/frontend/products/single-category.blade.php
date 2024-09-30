@@ -19,80 +19,7 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="shop-categories owl-carousel mt-5">
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-carrot"></i></span>
-                                    <div class="media-body">
-                                        <h5>Vegetables</h5>
-                                        <p>Freshly Harvested Veggies From Local Growers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-apple"></i></span>
-                                    <div class="media-body">
-                                        <h5>Fruits</h5>
-                                        <p>Variety of Fruits From Local Growers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-roast-leg"></i></span>
-                                    <div class="media-body">
-                                        <h5>Meats</h5>
-                                        <p>Protein Rich Ingridients From Local Farmers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-fish-1"></i></span>
-                                    <div class="media-body">
-                                        <h5>Fishes</h5>
-                                        <p>Protein Rich Ingridients From Local Farmers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-french-fries"></i></span>
-                                    <div class="media-body">
-                                        <h5>Frozen Foods</h5>
-                                        <p>Protein Rich Ingridients From Local Farmers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="shop.html">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2"><i class="sb-bistro-appetizer"></i></span>
-                                    <div class="media-body">
-                                        <h5>Packages</h5>
-                                        <p>Protein Rich Ingridients From Local Farmers</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <section id="most-wanted">
             <div class="container">
@@ -123,7 +50,7 @@
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="{{route('product')}}">{{$product->name}}</a>
+                                                <a href="#">{{$product->name}}</a>
                                             </h4>
                                             <div class="card-price">
                                                 <!-- <span class="discount">Rp. 300.000</span> -->
