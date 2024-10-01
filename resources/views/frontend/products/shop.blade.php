@@ -1,5 +1,5 @@
 @extends('frontend.main')
-@section('title', 'home')
+@section('title', 'shop')
 
 @section('style')
 @endsection

@@ -48,16 +48,24 @@
                         <p class="mb-1">
                             <strong>Quantity</strong>
                         </p>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <input class="form-control" type="number" min="1" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary" value="1" name="vertical-spin">
+                        <form method="POST" action="{{route('products.add.cart')}}">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <input name="qty"  class="form-control" type="number" min="1" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary" value="1" name="vertical-spin">
+                                </div>
+                                <div class="col-sm-6"><span class="pt-1 d-inline-block">Pack (1000 gram)</span></div>
                             </div>
-                            <div class="col-sm-6"><span class="pt-1 d-inline-block">Pack (1000 gram)</span></div>
-                        </div>
 
-                        <button class="mt-3 btn btn-primary btn-lg">
-                            <i class="fa fa-shopping-basket"></i> Add to Cart
-                        </button>
+                                <input name="name" value="{{$product->name}}" type="text">
+                                <input name="price" value="{{$product->price}}" type="text">
+                                <input name="pro_id" value="{{$product->id}}" type="text">
+                                <input name="image" value="{{$product->image}}" type="text">
+
+                                    <button  type="submit" name="submit"  class="mt-3 btn btn-primary btn-lg">
+                                        <i class="fa fa-shopping-basket"></i> Add to Cart
+                                    </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -68,9 +76,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="title">Related Products</h2>
+                        @if ( $relatedProducts->count() > 0)
                         <div class="product-carousel owl-carousel">
-
-                            <div class="item">
+                           <div class="item">
                             @foreach ( $relatedProducts as $relatedProduct )
                                 <div class="card card-product">
                                     <div class="card-ribbon">
@@ -107,8 +115,15 @@
                             </div>
 
                             @endforeach
+                            @else
+                            <p class="alert alert-success">
+                                There are No Related Products in this Category Just Now
+                            </p>
 
-                        </div>
+                    </div>
+                    @endif
+                    </div>
+
                     </div>
                 </div>
             </div>

@@ -30,6 +30,7 @@ Route::get('trans',action: [HomeController::class,'transaction'])->name('trans')
 Route::get(uri: 'register',action: [HomeController::class,'registeration'])->name('register');
 Route::get(uri: 'login',action: [HomeController::class,'login'])->name('login');
 
+//
 Route::get('products/category/{id}',[ProductController::class,'singleCategory'])->name('single.category');
 
 Route::get('products/single-product/{id}',[ProductController::class,'singleProduct'])->name('single.product');
@@ -37,3 +38,6 @@ Route::get('products/single-product/{id}',[ProductController::class,'singleProdu
 Route::get('products/single-product/{id}',[ProductController::class,'singleProduct'])->name('single.product');
 
 Route::get('products/shop',[ProductController::class,'shop'])->name('products.shop');
+
+//carts
+Route::post('products/add-cart',[ProductController::class,'addToCart'])->name('products.add.cart');
