@@ -61,7 +61,7 @@ class ProductController extends Controller
         $fruits=Product::select()->where('category_id',"=",4)
         ->orderBy('name','desc')->take(5)->get();
 
-        return view('frontend.products.shop', compact('categories','mostWanted','vegetables','meats'));
+        return view('frontend.products.shop', compact('categories','mostWanted','vegetables','meats','fishes','fruits'));
     }
 
 
