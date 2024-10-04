@@ -8,7 +8,7 @@ use App\Models\Product\Product;
 use App\Models\Product\Category;
 use App\Models\Product\Cart;
 use Auth;
-
+use Redirect;
 class ProductController extends Controller
 {
     //
@@ -41,8 +41,13 @@ class ProductController extends Controller
         $relatedProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->get();
+
+        $checkInCart=Cart::where('pro_id',$id)
+
+        ->count();
         // Return the view with both the product and the related products
-        return view('frontend.products.singleproduct', compact('product', 'relatedProducts'));
+        return view('frontend.products.singleproduct', compact('product', 'relatedProducts','checkInCart'));
+
     }
 
     public  function shop(){
@@ -77,7 +82,11 @@ class ProductController extends Controller
             "pro_id"=>  $request->pro_id,
             // "user_id"=>  Auth::user()->id,
         ]);
-            echo "Item  added to cart";
+         if($addCart){
+            return Redirect::route('single.product',$request->pro_id)->with(['success' => 'Product Added to cart Sucessfully']);
+
+         }
+
     }
 
 }
