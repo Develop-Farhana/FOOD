@@ -80,7 +80,7 @@ class ProductController extends Controller
             "qty"=>    $request->qty,
             "image"=>  $request->image,
             "pro_id"=>  $request->pro_id,
-            // "user_id"=>  Auth::user()->id,
+            "user_id"=>  Auth::user()->id,
         ]);
          if($addCart){
             return Redirect::route('single.product',$request->pro_id)->with(['success' => 'Product Added to cart Sucessfully']);
@@ -93,12 +93,12 @@ class ProductController extends Controller
     public function cart()
     {
 
-        // $cartProducts = Cart::select()->where('user_id',Auth::user()->id)
-        // ->get();
+        $cartProducts = Cart::select()->where('user_id',Auth::user()->id)
+        ->get();
 
         // return view('products.cart',compact('$cartProducts'));
 
-        $cartProducts = Cart::select()->get();
+        // $cartProducts = Cart::select()->get();
 
         return view('frontend.products.cart',compact('cartProducts'));
 

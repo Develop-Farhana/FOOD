@@ -3,7 +3,8 @@
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Products\ProductController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home',[HomeController::class,'home']);
+Route::get('home',[HomeController::class,'home'])->name('home');
 
 // Route::get('product-detail',[HomeController::class,'product'])->name('product');
 Route::get('cart',[HomeController::class,'cart'])->name('cart');
@@ -43,3 +44,18 @@ Route::get('products/shop',[ProductController::class,'shop'])->name('products.sh
 Route::post('products/add-cart',[ProductController::class,'addToCart'])->name('products.add.cart');
 Route::get('products/cart',[ProductController::class,'cart'])->name('products.cart');
 
+
+
+//Regsitration
+
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+
+
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth');
