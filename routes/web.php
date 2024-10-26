@@ -43,7 +43,7 @@ Route::get('products/shop',[ProductController::class,'shop'])->name('products.sh
 //carts
 Route::post('products/add-cart',[ProductController::class,'addToCart'])->name('products.add.cart');
 Route::get('products/cart',[ProductController::class,'cart'])->name('products.cart');
-
+Route::get('/cart/delete/{id}', [ProductController::class, 'deleteFromCart'])->name('products.cart.delete');
 
 
 //Regsitration

@@ -19,7 +19,15 @@
                 </div>
             </div>
         </div>
-
+        <div class="container mt-5">
+            @if (\Session::has('delete'))
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{!! \Session::get('delete') !!}</li>
+                    </ul>
+                </div>
+            @endif
+        </div>
         <section id="cart">
             <div class="container">
                 <div class="row">
@@ -57,8 +65,12 @@
                                             Rp {{$product->price * $product->qty}}
                                         </td>
                                         <td>
-                                            <a href="javasript:void" class="text-danger"><i class="fa fa-times"></i></a>
-                                        </td>
+                                        <a href="{{ route('products.cart.delete', $product->id) }}" class="text-danger" onclick="return confirm('Are you sure you want to delete this product from the cart?');">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+
+                                </td>
                                     </tr>
                                     @endforeach
 

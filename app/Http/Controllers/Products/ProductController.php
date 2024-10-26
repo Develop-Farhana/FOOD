@@ -9,6 +9,7 @@ use App\Models\Product\Category;
 use App\Models\Product\Cart;
 use Auth;
 use Redirect;
+use Route;
 
 class ProductController extends Controller
 {
@@ -91,8 +92,7 @@ class ProductController extends Controller
     // Method to display the cart
     public function cart()
     {
-        // Fetch cart items for the logged-in user
-        // $cartProducts = Cart::select()->where('user_id', Auth::id())->get();
+
          $cartProducts = Cart::select()->where('user_id',Auth::user()->id)
          ->get();
 
@@ -100,6 +100,22 @@ class ProductController extends Controller
 
         return view('frontend.products.cart', compact('cartProducts','subtotal'));
     }
+    public function deleteFromCart($id)
+{
+    $deleteCart = Cart::find($id);
+
+    if ($deleteCart) {
+        $deleteCart->delete();
+        return redirect()->route('products.cart')
+            ->with('delete', 'Product Deleted From Cart Successfully');
+    }
+
+    return redirect()->route('products.cart')
+        ->with('error', 'Product Not Found');
+}
+
+
+
 
 
 }
