@@ -21,4 +21,7 @@ class Product extends Model
     ];
 
     public $timestamps = true;
+
+
+
 }

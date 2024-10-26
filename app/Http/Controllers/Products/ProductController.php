@@ -66,9 +66,7 @@ class ProductController extends Controller
             'image' => 'required|string|max:255', // Assuming it's a URL or path to the image
             'pro_id' => 'required|integer|exists:products,id',
         ]);
- // Calculate the subtotal based on price and quantity
- $subtotal = $request->price * $request->qty; // Make sure to declare subtotal here
-        // Create the cart entry
+
         $cartItem = Cart::create([
             'name' => $request->name,
             'price' => $request->price,
@@ -76,7 +74,8 @@ class ProductController extends Controller
             'image' => $request->image,
             'pro_id' => $request->pro_id,
             'user_id' => Auth::id(),
-            'subtotal' => $subtotal,
+            "subtotal"=>$request->qty * $request->price
+
         ]);
 
         // Redirect back to the single product page with a success message
@@ -93,31 +92,14 @@ class ProductController extends Controller
     public function cart()
     {
         // Fetch cart items for the logged-in user
-        $cartProducts = Cart::where('user_id', Auth::id())->get();
+        // $cartProducts = Cart::select()->where('user_id', Auth::id())->get();
+         $cartProducts = Cart::select()->where('user_id',Auth::user()->id)
+         ->get();
 
-        return view('frontend.products.cart', compact('cartProducts'));
+         $subtotal = Cart::where('user_id',Auth::user()->id)->sum('subtotal');
+
+        return view('frontend.products.cart', compact('cartProducts','subtotal'));
     }
-    public function updateCartItem(Request $request, $id)
-{
-    // Validate the request data
-    $request->validate([
-        'qty' => 'required|integer|min:1',
-    ]);
-
-    // Find the cart item
-    $cartItem = Cart::findOrFail($id);
-
-    // Update quantity
-    $cartItem->qty = $request->qty;
-
-    // Recalculate subtotal
-    $cartItem->subtotal = $cartItem->price * $cartItem->qty;
-
-    // Save the changes
-    $cartItem->save();
-
-    return redirect()->route('cart.index')->with('success', 'Cart item updated successfully');
-}
 
 
 }
