@@ -45,6 +45,11 @@ Route::post('products/add-cart',[ProductController::class,'addToCart'])->name('p
 Route::get('products/cart',[ProductController::class,'cart'])->name('products.cart');
 Route::get('/cart/delete/{id}', [ProductController::class, 'deleteFromCart'])->name('products.cart.delete');
 
+//checkout
+Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.chekout');
+Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.chekout');
+
+
 
 //Regsitration
 

@@ -10,7 +10,7 @@ use App\Models\Product\Cart;
 use Auth;
 use Redirect;
 use Route;
-
+use Session;
 class ProductController extends Controller
 {
     // Method to show products by category
@@ -114,7 +114,28 @@ class ProductController extends Controller
         ->with('error', 'Product Not Found');
 }
 
+public function preapareCheckout(Request $request)
+{
+    $price= $request->price;
+    $vlaue = Session::put('value',$price);
+    $newPrice = Session::get( $vlaue );
+    if ($newPrice > 0) {
 
+        return Redirect::route('products.chekout');
+
+    }
+
+
+}
+
+
+
+public function checkout()
+{
+    echo "wlecome to checkout";
+
+
+}
 
 
 
