@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product\Product;
 use App\Models\Product\Category;
 use App\Models\Product\Cart;
+use App\Models\Product\Order;
 use Auth;
 use Redirect;
 use Route;
@@ -132,11 +133,52 @@ public function preapareCheckout(Request $request)
 
 public function checkout()
 {
-    echo "wlecome to checkout";
-
+        $cartItems= Cart::select()->where('user_id',Auth::user()->id)->get();
+        $checkoutSubtotal=Cart::select()->where('user_id',Auth::user()->id)
+        ->sum('subtotal');
+        return view ('frontend.products.checkout',compact('cartItems','checkoutSubtotal'));
 
 }
+public function processCheckout(Request $request)
+    {
+        // Validate the request data
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'price' => 'required|numeric',
+        //     'qty' => 'required|integer|min:1',
+        //     'image' => 'required|string|max:255', // Assuming it's a URL or path to the image
+        //     'pro_id' => 'required|integer|exists:products,id',
+        // ]);
 
+        $checkout = Order::create([
+            'name' => $request->name,
+            'last_name' => $request->last_name,
+            'address' => $request->address,
+            'town' => $request->town,
+            'state' => $request->state,
+            'zip_code' => $request->zip_code,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'price' => $request->price,
+            'user_id' => $request->user_id,
+            "order_notes"=>$request->order_notes
+
+        ]);
+
+        // Redirect back to the single product page with a success message
+        if ($checkout) {
+            return redirect()->route('products.pay');
+        }
+
+
+    }
+    public function payWithPaypal()
+{
+    echo "pay with paypal";
+
+        // return view ('frontend.products.checkout',compact('cartItems','checkoutSubtotal'));
+
+}
 
 
 }
