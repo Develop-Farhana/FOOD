@@ -51,6 +51,7 @@ Route::get('products/checkout',[ProductController::class,'checkout'])->name('pro
 
 Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.chekout');
 Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay');
+Route::get('products/successs',[ProductController::class,'success'])->name('products.success');
 
 
 

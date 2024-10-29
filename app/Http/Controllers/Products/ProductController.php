@@ -174,9 +174,18 @@ public function processCheckout(Request $request)
     }
     public function payWithPaypal()
 {
-    echo "pay with paypal";
 
-        // return view ('frontend.products.checkout',compact('cartItems','checkoutSubtotal'));
+
+        return view ('frontend.products.pay');
+
+}
+
+public function success()
+{
+
+    echo "you paid sucessfully";
+
+        // return view ('frontend.products.pay');
 
 }
 
