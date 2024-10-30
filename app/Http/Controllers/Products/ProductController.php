@@ -119,6 +119,7 @@ public function preapareCheckout(Request $request)
 {
     $price= $request->price;
     $vlaue = Session::put('value',$price);
+
     $newPrice = Session::get( $vlaue );
     if ($newPrice > 0) {
 
@@ -164,9 +165,12 @@ public function processCheckout(Request $request)
             "order_notes"=>$request->order_notes
 
         ]);
+        $vlaue = Session::put('value', $request->price);
 
+        $newPrice = Session::get( $vlaue );
         // Redirect back to the single product page with a success message
         if ($checkout) {
+
             return redirect()->route('products.pay');
         }
 
@@ -181,13 +185,19 @@ public function processCheckout(Request $request)
 }
 
 public function success()
-{
+ {
 
-    echo "you paid sucessfully";
+        $deleteItemsFromCart = Cart::where('user_id',Auth::user()->id);
+        $deleteItemsFromCart->delete();
 
-        // return view ('frontend.products.pay');
 
-}
+        if ($deleteItemsFromCart)
+        {
+            Session::forget('value');
+            return view('frontend.products.success');
+        }
+
+ }
 
 
 }

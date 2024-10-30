@@ -46,13 +46,21 @@ Route::get('products/cart',[ProductController::class,'cart'])->name('products.ca
 Route::get('/cart/delete/{id}', [ProductController::class, 'deleteFromCart'])->name('products.cart.delete');
 
 //checkout and Pay
+// Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.chekout');
+// Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.chekout')
+// ->middleware('check.for.price');
+// Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.chekout')
+// ->middleware('check.for.price');
+// Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay')
+// ->middleware('check.for.price');
+// Route::get('products/successs',[ProductController::class,'success'])->name('products.success')
+// ->middleware('check.for.price');
+
 Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.chekout');
 Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.chekout');
-
 Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.chekout');
 Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay');
-Route::get('products/successs',[ProductController::class,'success'])->name('products.success');
-
+Route::get('products/success',[ProductController::class,'success'])->name('products.success');
 
 
 //Regsitration
