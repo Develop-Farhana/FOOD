@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <a href="shop.html" class="btn btn-default">Continue Shopping</a>
+                        <a href="{{route('products.shop')}}" class="btn btn-default">Continue Shopping</a>
                     </div>
                     <div class="col text-right">
 

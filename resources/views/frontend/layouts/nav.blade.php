@@ -29,7 +29,7 @@
                                 <div class="avatar-header"><img src="{{asset('frontend/img/logo/avatar.jpg')}}"></div> John Doe
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('trans')}}">Transactions History</a>
+                                <a class="dropdown-item" href="{{route('users.orders')}}">Transactions History</a>
                                 <a class="dropdown-item" href="setting.html">Settings</a>
                             </div>
                           </li>

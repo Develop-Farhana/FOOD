@@ -13,7 +13,7 @@
                     <h1 class="pt-5">
                         You Paid For The Products sucessfully
                     </h1>
-                    <a class="btn btn-primary" href="{{route('home')}}" >
+                    <a class="btn btn-primary" href="#" >
                       Go Home
                     </a>
 

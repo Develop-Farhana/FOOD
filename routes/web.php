@@ -5,6 +5,7 @@ use App\Http\Controllers\Products\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Users\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,16 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home',[HomeController::class,'home'])->name('home');
 
-// Route::get('product-detail',[HomeController::class,'product'])->name('product');
-Route::get('cart',[HomeController::class,'cart'])->name('cart');
-
-Route::get('checkout',[HomeController::class,'checkout'])->name('checkout');
-Route::get('trans',action: [HomeController::class,'transaction'])->name('trans');
-
-Route::get(uri: 'register',action: [HomeController::class,'registeration'])->name('register');
-Route::get(uri: 'login',action: [HomeController::class,'login'])->name('login');
 
 //
 Route::get('products/category/{id}',[ProductController::class,'singleCategory'])->name('single.category');
@@ -63,6 +55,10 @@ Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('pro
 Route::get('products/success',[ProductController::class,'success'])->name('products.success');
 
 
+//userspages
+Route::get('users/my-orders',[UsersController::class,'myOrders'])->name('users.orders');
+
+
 //Regsitration
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -76,3 +72,4 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', function () {
     return view('home');
 })->middleware('auth');
+
