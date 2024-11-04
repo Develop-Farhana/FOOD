@@ -57,6 +57,8 @@ Route::get('products/success',[ProductController::class,'success'])->name('produ
 
 //userspages
 Route::get('users/my-orders',[UsersController::class,'myOrders'])->name('users.orders');
+Route::get('users/settings',[UsersController::class,'settings'])->name('users.settings');
+Route::post('users/settings/{id}',[UsersController::class,'updateUserSettings'])->name('users.settings.update');
 
 
 //Regsitration

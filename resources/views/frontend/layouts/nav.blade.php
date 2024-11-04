@@ -26,11 +26,11 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="avatar-header"><img src="{{asset('frontend/img/logo/avatar.jpg')}}"></div> John Doe
-                            </a>
+                                <div class="avatar-header"><img src="{{asset('frontend/user_images/'.$user->image .'')}}"></div> {{Auth::user()->name}}
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{route('users.orders')}}">Transactions History</a>
-                                <a class="dropdown-item" href="setting.html">Settings</a>
+                                <a class="dropdown-item" href="{{route('users.settings')}}">Settings</a>
+                                <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                             </div>
                           </li>
                         <li class="nav-item">
