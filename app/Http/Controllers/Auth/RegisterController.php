@@ -33,7 +33,7 @@ class RegisterController extends Controller
         ]);
 
         // Redirect or login
-        return redirect()->route('products.shop')->with('success', 'Registration successful!');
+        return redirect()->route('login')->with('success', 'Registration successful!');
     }
 }
 

@@ -21,44 +21,50 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home',[ProductController::class,'home'])->name('home');
+Route::group(['prefix' => 'products'], function() {
+
+    // Products
+    Route::get('/category/{id}', [ProductController::class, 'singleCategory'])->name('single.category');
+    Route::get('/single-product/{id}', [ProductController::class, 'singleProduct'])->name('single.product');
+    Route::get('/shop', [ProductController::class, 'shop'])->name('products.shop');
+
+    // Checkout and Pay
+    Route::post('/prepare-checkout', [ProductController::class, 'prepareCheckout'])->name('products.prepare.checkout');
+    Route::get('/checkout', [ProductController::class, 'checkout'])->name('products.checkout');
+    Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('products.process.checkout');
+    Route::get('/pay', [ProductController::class, 'payWithPaypal'])->name('products.pay');
+    Route::get('/success', [ProductController::class, 'success'])->name('products.success');
+
+    // Carts
+    Route::post('/add-cart', [ProductController::class, 'addToCart'])->name('products.add.cart');
+    Route::get('/cart', [ProductController::class, 'cart'])->name('products.cart');
+    Route::get('/cart/delete/{id}', [ProductController::class, 'deleteFromCart'])->name('products.cart.delete');
+
+});
 
 
-//
-Route::get('products/category/{id}',[ProductController::class,'singleCategory'])->name('single.category');
 
-Route::get('products/single-product/{id}',[ProductController::class,'singleProduct'])->name('single.product');
-
-Route::get('products/single-product/{id}',[ProductController::class,'singleProduct'])->name('single.product');
-
-Route::get('products/shop',[ProductController::class,'shop'])->name('products.shop');
-
-//carts
-Route::post('products/add-cart',[ProductController::class,'addToCart'])->name('products.add.cart');
-Route::get('products/cart',[ProductController::class,'cart'])->name('products.cart');
-Route::get('/cart/delete/{id}', [ProductController::class, 'deleteFromCart'])->name('products.cart.delete');
 
 //checkout and Pay
-// Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.chekout');
-// Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.chekout')
+// Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.checkout');
+// Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.checkout')
 // ->middleware('check.for.price');
-// Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.chekout')
+// Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.checkout')
 // ->middleware('check.for.price');
 // Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay')
 // ->middleware('check.for.price');
 // Route::get('products/successs',[ProductController::class,'success'])->name('products.success')
 // ->middleware('check.for.price');
 
-Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.chekout');
-Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.chekout');
-Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.chekout');
-Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay');
-Route::get('products/success',[ProductController::class,'success'])->name('products.success');
 
 
 //userspages
-Route::get('users/my-orders',[UsersController::class,'myOrders'])->name('users.orders');
-Route::get('users/settings',[UsersController::class,'settings'])->name('users.settings');
-Route::post('users/settings/{id}',[UsersController::class,'updateUserSettings'])->name('users.settings.update');
+Route::prefix('users')->group(function () {
+    Route::get('/my-orders', [UsersController::class, 'myOrders'])->name('users.orders');
+    Route::get('/settings', [UsersController::class, 'settings'])->name('users.settings');
+    Route::post('/settings', [UsersController::class, 'updateUserSettings'])->name('users.settings.update');
+});
 
 
 //Regsitration
@@ -71,7 +77,4 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth');
 

@@ -25,7 +25,7 @@
                     <div class="col-xs-12 col-sm-7">
                         <h5 class="mb-3">BILLING DETAILS</h5>
                         <!-- Bill Detail of the Page -->
-                        <form action="{{route('products.process.chekout')}}" method="POST" class="bill-detail">
+                        <form action="{{route('products.process.checkout')}}" method="POST" class="bill-detail">
                             <fieldset>
                                 @csrf
                                 <div class="form-group row">

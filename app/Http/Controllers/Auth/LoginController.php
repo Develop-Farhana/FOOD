@@ -29,7 +29,7 @@ class LoginController extends Controller
         // Attempt to login
         if (Auth::attempt($credentials)) {
             // Successful login
-            return redirect()->route('products.shop')->with('success', 'Login successful!');
+            return redirect()->route('home')->with('success', 'Login successful!');
         } else {
             // Failed login
             return redirect()->back()->withErrors(['email' => 'Invalid credentials'])->withInput();
@@ -38,7 +38,8 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::logout();  // Logs out the authenticated user
         return redirect()->route('login')->with('success', 'Logged out successfully!');
     }
+
 }

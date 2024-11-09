@@ -87,7 +87,7 @@
                         <div class="clearfix"></div>
                         <h6 class="mt-3">Total: Rp{{$subtotal}}</h6>
                         @if($subtotal > 0)
-                            <form action="{{route('products.prepare.chekout')}}" method="POST">
+                            <form action="{{route('products.prepare.checkout')}}" method="POST">
                                 @csrf
                                 <input type="hidden" name="" value="{{$subtotal}}">
                                 <button type="submit"  class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></button>
