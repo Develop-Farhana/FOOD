@@ -2,6 +2,7 @@
 @section('title', 'Login')
 
 @section('style')
+    <!-- Add custom styles here if needed -->
 @endsection
 
 @section('content')
@@ -22,7 +23,7 @@
                             @csrf <!-- Laravel CSRF Protection -->
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="email" name="email" value="{{ old('email') }}" required placeholder="Email">
+                                    <input class="form-control" type="email" name="email" value="{{ old('email') }}" required placeholder="Email" aria-label="Email" autofocus>
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -30,13 +31,19 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="password" name="password" required placeholder="Password">
+                                    <input class="form-control" type="password" name="password" required placeholder="Password" aria-label="Password">
                                     @error('password')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label for="checkbox0" class="mb-0">New to our platform? <a href="{{ route('register') }}" class="text-light">Create an Account</a></label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-group row text-center mt-4">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase">Log In</button>
