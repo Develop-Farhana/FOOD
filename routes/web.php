@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Admins\AdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Products\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -75,6 +76,21 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
+//admin
 
+Route::get('/demo', [HomeController::class, 'demo']);
+
+
+//admin panel
+
+
+Route::get('admin/login', [AdminController::class, 'viewLogin'])->name('view.login')->middleware('check.for.auth');
+Route::post('admin/login', [AdminController::class, 'checkLogin'])->name('check.login')->middleware('check.for.auth');
+
+Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function(){
+    Route::get('/index', [AdminController::class, 'index'])->name('admins.dashboard');
+
+});
+Route::post('logout', [AdminController::class, 'logout'])->name('logout');
 
 
