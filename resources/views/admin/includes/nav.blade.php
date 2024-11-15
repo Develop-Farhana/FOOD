@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+                    <a class="nav-link" href="{{route('admin.alladmins')}}" style="margin-left: 20px;">Admins</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
@@ -58,7 +58,7 @@
 
             @else
                     <li class="nav-item">
-                        <a class="nav-link" href="admins/login-admins.html">login
+                        <a class="nav-link" href="{{route('view.login')}}">login
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>

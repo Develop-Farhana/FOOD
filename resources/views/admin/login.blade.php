@@ -57,7 +57,7 @@
 
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="login-admins.html">Login
+            <a class="nav-link" href="{{route('view.login')}}">Login
               <span class="sr-only">(current)</span>
             </a>
           </li>
