@@ -9,6 +9,7 @@ use App\Models\Product\Order;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
+use File;
 use App\Models\Product\Product;
 class AdminController extends Controller
 {
@@ -87,5 +88,78 @@ class AdminController extends Controller
          return back()->with('error', 'Failed to create admin. Please try again.');
      }
 
+     public  function displayCategories()
+     {
+
+        $allCategories = Category::select()->orderBy('id','desc')->get();
+        return view('admin.category.allcategories', compact('allCategories'));
+     }
+     public  function createCategories()
+     {
+        return view('admin.category.createcategories');
+     }
+
+
+     public function   storeCategories(Request $request)
+     {
+        $destinationPath = 'frontend/img/';
+        $myimage = $request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath), $myimage);
+         // Create a new admin
+         $storeCategories = Category::create([
+            'icon' => $request->icon,
+             'name' => $request->name,
+             'image' => $myimage,
+
+         ]);
+
+         // Check if the admin creation was successful
+         if ($storeCategories) {
+             return redirect()->route('categories.all')->with('success', 'Catgeory created successfully');
+         }
+
+         // Optional: Handle the failure case if the admin creation was not successful
+         return back()->with('error', 'Failed to create admin. Please try again.');
+     }
+
+        public function editCategories($id)
+        {
+            $category = Category::find($id);
+            return view('admin.category.edit', compact('category'));
+        }
+        public function   updateCategories(Request $request ,$id)
+        {
+            $category= Category::find($id);
+            $category ->update($request->all());
+
+
+            // Check if the admin creation was successful
+            if ($category) {
+                return redirect()->route('categories.all')->with('update', 'Catgeory updated successfully');
+            }
+
+            // Optional: Handle the failure case if the admin creation was not successful
+
+        }
+
+        public function   deleteCategories($id)
+        {
+            $category= Category::find($id);
+            if(File::exists(public_path('frontend/img/' .  $category->image))){
+                File::delete(public_path('frontend/img/' .  $category->image));
+            }else{
+                //dd('File does not exists.');
+            }
+            $category ->delete();
+
+
+            // Check if the admin creation was successful
+            if ($category) {
+                return redirect()->route('categories.all')->with('update', 'Catgeory deleted successfully');
+            }
+
+            // Optional: Handle the failure case if the admin creation was not successful
+
+        }
 
     }

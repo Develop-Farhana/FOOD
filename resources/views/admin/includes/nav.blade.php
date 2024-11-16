@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{route('admin.alladmins')}}" style="margin-left: 20px;">Admins</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
+                    <a class="nav-link" href="{{route('categories.all')}}" style="margin-left: 20px;">Categories</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="products-admins/show-products.html" style="margin-left: 20px;">Products</a>

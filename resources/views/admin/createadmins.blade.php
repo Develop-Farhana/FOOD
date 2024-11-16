@@ -10,13 +10,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                @if (session('success'))
-                <div class="alert alert-success">
-                    <ul>
-                        <li>{{ session('success') }}</li>
-                    </ul>
-                </div>
-            @endif
+
 
                     <div class="container mt-5">
                         <h5 class="card-title mb-5 d-inline">Create Admins</h5>

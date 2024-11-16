@@ -20,24 +20,27 @@
         </div>
 
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="shop-categories owl-carousel mt-5">
-                        @foreach ($categories as $category )
-                        <div class="item">
-                            <a href="{{route('single.category',$category->id)}}">
-                                <div class="media d-flex align-items-center justify-content-center">
-                                    <span class="d-flex mr-2">
-                                        <i class="sb-bistro-{{$category->icon}}"></i></span>
-                                    <div class="media-body">
-                                        <h5>{{$category->name}}</h5>
-                                        <p>Freshly Harvested Veggies From Local Growers</p>
-                                    </div>
-                                </div>
-                            </a>
+        <div class="row">
+    <div class="col-md-12">
+        <div class="shop-categories owl-carousel mt-5">
+            @foreach ($categories as $category)
+                <div class="item">
+                    <a href="{{ route('single.category', $category->id) }}">
+                        <div class="media d-flex align-items-center justify-content-center">
+                            <span class="d-flex mr-2">
+                                <i class="sb-bistro-{{ $category->icon }}"></i>
+                            </span>
+                            <div class="media-body">
+                                <h5>{{ $category->name }}</h5>
+                            </div>
                         </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
 
-                        @endforeach
 
                     </div>
                 </div>

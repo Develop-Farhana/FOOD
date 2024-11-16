@@ -97,7 +97,14 @@ Route::get('/all-admins', [AdminController::class, 'displayAdmins'])->name('admi
 Route::get('/create-admins', [AdminController::class, 'createAdmins'])->name('admins.create');
 Route::post('/create-admins', [AdminController::class, 'storeAdmins'])->name('admins.store');
 
+// category
+Route::get('/all-categories', [AdminController::class, 'displayCategories'])->name('categories.all');
 
+Route::get('/create-categories', [AdminController::class, 'createCategories'])->name('categories.create');
+Route::post('/create-categories', [AdminController::class, 'storeCategories'])->name('categories.store');
+Route::get('/edit-categories/{id}', [AdminController::class, 'editCategories'])->name('categories.edit');
+Route::post('/update-categories/{id}', [AdminController::class, 'updateCategories'])->name('categories.update');
+Route::get('/delete-categories/{id}', [AdminController::class, 'deleteCategories'])->name('categories.delete');
 
 
 });
