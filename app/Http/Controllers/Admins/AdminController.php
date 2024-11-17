@@ -162,4 +162,63 @@ class AdminController extends Controller
 
         }
 
+        public  function displayProducts()
+        {
+
+           $allProducts = Product::all();
+           return view('admin.products.allproducts', compact('allProducts'));
+        }
+
+        public function createProducts()
+        {
+            $allCategories = Category::all();
+            $allProducts= Product::all();
+            return view('admin.products.createproducts', compact('allCategories','allProducts'));
+        }
+
+        public function   storeProducts(Request $request)
+        {
+           $destinationPath = 'frontend/img/';
+           $myimage = $request->image->getClientOriginalName();
+           $request->image->move(public_path($destinationPath), $myimage);
+            // Create a new admin
+            $storeProducts = Product::create([
+                 'name' => $request->name,
+                 'price' => $request->price,
+                 'description' => $request->description,
+                 'category_id' => $request->category_id,
+                 'exp_date' => $request->exp_date,
+                'image' => $myimage,
+
+            ]);
+
+            // Check if the admin creation was successful
+            if ($storeProducts) {
+                return redirect()->route('products.all')->with('success', 'Product created successfully');
+            }
+
+            // Optional: Handle the failure case if the admin creation was not successful
+            return back()->with('error', 'Failed to create admin. Please try again.');
+        }
+
+
+        public function   deleteProducts($id)
+        {
+            $product= Product::find($id);
+            if(File::exists(public_path('frontend/img/' .   $product->image))){
+                File::delete(public_path('frontend/img/' .   $product->image));
+            }else{
+                //dd('File does not exists.');
+            }
+            $product ->delete();
+
+
+            // Check if the admin creation was successful
+            if ( $product) {
+                return redirect()->route('products.all')->with('delete', 'Product deleted successfully');
+            }
+
+            // Optional: Handle the failure case if the admin creation was not successful
+
+        }
     }

@@ -99,12 +99,17 @@ Route::post('/create-admins', [AdminController::class, 'storeAdmins'])->name('ad
 
 // category
 Route::get('/all-categories', [AdminController::class, 'displayCategories'])->name('categories.all');
-
 Route::get('/create-categories', [AdminController::class, 'createCategories'])->name('categories.create');
 Route::post('/create-categories', [AdminController::class, 'storeCategories'])->name('categories.store');
 Route::get('/edit-categories/{id}', [AdminController::class, 'editCategories'])->name('categories.edit');
 Route::post('/update-categories/{id}', [AdminController::class, 'updateCategories'])->name('categories.update');
 Route::get('/delete-categories/{id}', [AdminController::class, 'deleteCategories'])->name('categories.delete');
+
+//products
+Route::get('/all-products', [AdminController::class, 'displayProducts'])->name('products.all');
+Route::get('/create-products', [AdminController::class, 'createProducts'])->name('products.create');
+Route::post('/create-products', [AdminController::class, 'storeProducts'])->name('products.store');
+Route::get('/delete-products/{id}', [AdminController::class, 'deleteProducts'])->name('products.delete');
 
 
 });

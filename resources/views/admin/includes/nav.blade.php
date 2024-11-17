@@ -22,7 +22,7 @@
                     <a class="nav-link" href="{{route('categories.all')}}" style="margin-left: 20px;">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="products-admins/show-products.html" style="margin-left: 20px;">Products</a>
+                    <a class="nav-link" href="{{route('products.all')}}" style="margin-left: 20px;">Products</a>
                 </li>
 
                 <li class="nav-item">
