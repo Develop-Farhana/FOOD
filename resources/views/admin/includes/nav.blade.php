@@ -26,7 +26,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="orders-admins/show-orders.html" style="margin-left: 20px;">Orders</a>
+                    <a class="nav-link" href="{{route('orders.all')}}" style="margin-left: 20px;">Orders</a>
                 </li>
 
                 </ul>

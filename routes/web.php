@@ -88,29 +88,27 @@ Route::get('admin/login', [AdminController::class, 'viewLogin'])->name('view.log
 Route::post('admin/login', [AdminController::class, 'checkLogin'])->name('check.login');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function(){
-    Route::get('/index', [AdminController::class, 'index'])->name('admins.dashboard');
-
-//admins
-
-Route::get('/all-admins', [AdminController::class, 'displayAdmins'])->name('admin.alladmins');
-
-Route::get('/create-admins', [AdminController::class, 'createAdmins'])->name('admins.create');
-Route::post('/create-admins', [AdminController::class, 'storeAdmins'])->name('admins.store');
-
-// category
-Route::get('/all-categories', [AdminController::class, 'displayCategories'])->name('categories.all');
-Route::get('/create-categories', [AdminController::class, 'createCategories'])->name('categories.create');
-Route::post('/create-categories', [AdminController::class, 'storeCategories'])->name('categories.store');
-Route::get('/edit-categories/{id}', [AdminController::class, 'editCategories'])->name('categories.edit');
-Route::post('/update-categories/{id}', [AdminController::class, 'updateCategories'])->name('categories.update');
-Route::get('/delete-categories/{id}', [AdminController::class, 'deleteCategories'])->name('categories.delete');
-
-//products
-Route::get('/all-products', [AdminController::class, 'displayProducts'])->name('products.all');
-Route::get('/create-products', [AdminController::class, 'createProducts'])->name('products.create');
-Route::post('/create-products', [AdminController::class, 'storeProducts'])->name('products.store');
-Route::get('/delete-products/{id}', [AdminController::class, 'deleteProducts'])->name('products.delete');
-
+        Route::get('/index', [AdminController::class, 'index'])->name('admins.dashboard');
+        //admins
+        Route::get('/all-admins', [AdminController::class, 'displayAdmins'])->name('admin.alladmins');
+        Route::get('/create-admins', [AdminController::class, 'createAdmins'])->name('admins.create');
+        Route::post('/create-admins', [AdminController::class, 'storeAdmins'])->name('admins.store');
+        // category
+        Route::get('/all-categories', [AdminController::class, 'displayCategories'])->name('categories.all');
+        Route::get('/create-categories', [AdminController::class, 'createCategories'])->name('categories.create');
+        Route::post('/create-categories', [AdminController::class, 'storeCategories'])->name('categories.store');
+        Route::get('/edit-categories/{id}', [AdminController::class, 'editCategories'])->name('categories.edit');
+        Route::post('/update-categories/{id}', [AdminController::class, 'updateCategories'])->name('categories.update');
+        Route::get('/delete-categories/{id}', [AdminController::class, 'deleteCategories'])->name('categories.delete');
+        //products
+        Route::get('/all-products', [AdminController::class, 'displayProducts'])->name('products.all');
+        Route::get('/create-products', [AdminController::class, 'createProducts'])->name('products.create');
+        Route::post('/create-products', [AdminController::class, 'storeProducts'])->name('products.store');
+        Route::get('/delete-products/{id}', [AdminController::class, 'deleteProducts'])->name('products.delete');
+        // orders
+        Route::get('/all-orders', [AdminController::class, 'displayOrders'])->name('orders.all');
+        Route::get('/orders/{id}/edit', [AdminController::class, 'editOrders'])->name('orders.edit');
+        Route::post('/orders/{id}/edit', [AdminController::class, 'updateOrders'])->name('orders.edit');
 
 });
 Route::post('logout', [AdminController::class, 'logout'])->name('logout');

@@ -28,7 +28,6 @@
                     <label for="exampleFormControlTextarea1">Description</label>
                     <textarea name="description" placeholder="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Select Category</label>
                     <select name="category_id" class="form-control" id="exampleFormControlSelect1">
@@ -58,9 +57,6 @@
 
                     <input type="file" name="image" id="form2Example1" class="form-control" placeholder="image" />
                 </div>
-
-
-
                 <!-- Submit button -->
                 <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">create</button>
 

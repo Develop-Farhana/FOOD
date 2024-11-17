@@ -221,4 +221,38 @@ class AdminController extends Controller
             // Optional: Handle the failure case if the admin creation was not successful
 
         }
+
+
+
+        public  function displayOrders()
+        {
+
+           $allOrders = Order::all();
+           return view('admin.orders.allorders', compact('allOrders'));
+        }
+
+
+        public function editOrders($id)
+        {
+            $order = Order::find($id);
+            return view('admin.orders.editorders', compact('order'));
+        }
+
+
+
+        public function   updateOrders(Request $request ,$id)
+        {
+            $order= Order::find($id);
+            $order ->update($request->all());
+
+
+            // Check if the admin creation was successful
+            if ($order) {
+                return redirect()->route('orders.all')->with('success', 'Order updated successfully');
+            }
+
+            // Optional: Handle the failure case if the admin creation was not successful
+
+        }
+
     }
