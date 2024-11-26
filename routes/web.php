@@ -31,11 +31,11 @@ Route::group(['prefix' => 'products'], function() {
     Route::get('/shop', [ProductController::class, 'shop'])->name('products.shop');
 
     // Checkout and Pay
-    Route::post('/prepare-checkout', [ProductController::class, 'prepareCheckout'])->name('products.prepare.checkout');
-    Route::get('/checkout', [ProductController::class, 'checkout'])->name('products.checkout');
+    // Route::post('/prepare-checkout', [ProductController::class, 'prepareCheckout'])->name('products.prepare.checkout');
+    // Route::get('/checkout', [ProductController::class, 'checkout'])->name('products.checkout');
     Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('products.process.checkout');
     Route::get('/pay', [ProductController::class, 'payWithPaypal'])->name('products.pay');
-    Route::get('/success', [ProductController::class, 'success'])->name('products.success');
+    // Route::get('/success', [ProductController::class, 'success'])->name('products.success');
 
     // Carts
     Route::post('/add-cart', [ProductController::class, 'addToCart'])->name('products.add.cart');
@@ -48,15 +48,20 @@ Route::group(['prefix' => 'products'], function() {
 
 
 //checkout and Pay
-// Route::post('products/prepare-checkout',[ProductController::class,'preapareCheckout'])->name('products.prepare.checkout');
-// Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.checkout')
-// ->middleware('check.for.price');
+Route::post('products/prepare-checkout',[ProductController::class,'prepareCheckout'])->name('products.prepare.checkout')
+->middleware('check.for.price');
+
+Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.checkout')
+->middleware('check.for.price');
+
 // Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.checkout')
 // ->middleware('check.for.price');
+
 // Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay')
 // ->middleware('check.for.price');
-// Route::get('products/successs',[ProductController::class,'success'])->name('products.success')
-// ->middleware('check.for.price');
+
+Route::get('products/success',[ProductController::class,'success'])->name('products.success')
+->middleware('check.for.price');
 
 
 

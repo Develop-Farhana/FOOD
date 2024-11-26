@@ -108,6 +108,7 @@ class ProductController extends Controller
     public function prepareCheckout(Request $request)
     {
         Session::put('price', $request->price);
+        // dd(Session::get('price'));
         $newPrice = Session::get('price');
 
         if ($newPrice > 0) {
