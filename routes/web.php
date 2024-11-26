@@ -116,6 +116,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth:admin'],function(){
         Route::post('/orders/{id}/edit', [AdminController::class, 'updateOrders'])->name('orders.edit');
 
 });
-Route::post('logout', [AdminController::class, 'logout'])->name('logout');
+Route::post('admin-logout', [AdminController::class, 'logout'])->name('admin-logout');
 
 
