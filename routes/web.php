@@ -33,8 +33,8 @@ Route::group(['prefix' => 'products'], function() {
     // Checkout and Pay
     // Route::post('/prepare-checkout', [ProductController::class, 'prepareCheckout'])->name('products.prepare.checkout');
     // Route::get('/checkout', [ProductController::class, 'checkout'])->name('products.checkout');
-    Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('products.process.checkout');
-    Route::get('/pay', [ProductController::class, 'payWithPaypal'])->name('products.pay');
+    // Route::post('/checkout', [ProductController::class, 'processCheckout'])->name('products.process.checkout');
+    // Route::get('/pay', [ProductController::class, 'payWithPaypal'])->name('products.pay');
     // Route::get('/success', [ProductController::class, 'success'])->name('products.success');
 
     // Carts
@@ -54,11 +54,11 @@ Route::post('products/prepare-checkout',[ProductController::class,'prepareChecko
 Route::get('products/checkout',[ProductController::class,'checkout'])->name('products.checkout')
 ->middleware('check.for.price');
 
-// Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.checkout')
-// ->middleware('check.for.price');
+Route::post('products/checkout',[ProductController::class,'processCheckout'])->name('products.process.checkout')
+->middleware('check.for.price');
 
-// Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay')
-// ->middleware('check.for.price');
+Route::get('products/pay',[ProductController::class,'payWithPaypal'])->name('products.pay')
+->middleware('check.for.price');
 
 Route::get('products/success',[ProductController::class,'success'])->name('products.success')
 ->middleware('check.for.price');

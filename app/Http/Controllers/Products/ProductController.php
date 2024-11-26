@@ -129,27 +129,50 @@ class ProductController extends Controller
     // Process checkout
     public function processCheckout(Request $request)
     {
-        $checkout = Order::create([
-            'name' => $request->name,
-            'last_name' => $request->last_name,
-            'address' => $request->address,
-            'town' => $request->town,
-            'state' => $request->state,
-            'zip_code' => $request->zip_code,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'price' => $request->price,
-            'user_id' => $request->user_id,
-            'order_notes' => $request->order_notes
+        // Ensure user is authenticated before proceeding
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in first.');
+        }
+
+        // Validate incoming data
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'town' => 'required|string',
+            'state' => 'required|string',
+            'zip_code' => 'required|string',
+            'email' => 'required|email',
+            'phone_number' => 'required|string',
+            'order_notes' => 'nullable|string',
         ]);
 
+        // Calculate the total price (assuming $checkoutSubtotal is passed in)
+        $totalPrice = $request->price + 20;
+
+        // Create the order
+        $checkout = Order::create([
+            'name' => $validatedData['name'],
+            'last_name' => $validatedData['last_name'],
+            'address' => $validatedData['address'],
+            'town' => $validatedData['town'],
+            'state' => $validatedData['state'],
+            'zip_code' => $validatedData['zip_code'],
+            'email' => $validatedData['email'],
+            'phone_number' => $validatedData['phone_number'],
+            'price' => $totalPrice,
+            'user_id' => Auth::user()->id,
+            'order_notes' => $validatedData['order_notes'],
+        ]);
+        // If the order is created successfully, redirect to payment page
         if ($checkout) {
-            Session::forget('price');
+            Session::put('price', $checkout->price);
             return redirect()->route('products.pay');
         }
 
         return back()->with('error', 'Checkout failed.');
     }
+
 
     // Pay with PayPal (you can add actual PayPal integration later)
     public function payWithPaypal()

@@ -24,18 +24,29 @@
     <div class="card bg-light shadow-sm" style="width: 100%; max-width: 500px;">
         <div class="card-body text-center">
             <!-- Replace "test" with your own sandbox Business account app client ID -->
-            <script src="https://www.paypal.com/sdk/js?client-id=ATR1vpxSnKwuzcrP3gPpIiSevinX1gNC3iFl2rOjJSr6fPIgbbEHxKUCwFc5SxP1FT5N0q4PcNyP1sJ3&currency=USD"></script>
+
             <!-- Set up a container element for the button -->
             <h3 class="card-title mb-4">Complete Your Payment</h3>
             <div id="paypal-button-container"></div>
-            <script>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+  @endsection
+@section('script')
+<script src="https://www.paypal.com/sdk/js?client-id=ATR1vpxSnKwuzcrP3gPpIiSevinX1gNC3iFl2rOjJSr6fPIgbbEHxKUCwFc5SxP1FT5N0q4PcNyP1sJ3&currency=USD"></script>
+<script>
                 paypal.Buttons({
                     // Sets up the transaction when a payment button is clicked
                     createOrder: (data, actions) => {
                         return actions.order.create({
                             purchase_units: [{
                                 amount: {
-                                    value: '{{Session::get('value')}}' // Can also reference a variable or function
+                                    value: '{{Session::get('price')}}' // Can also reference a variable or function
                                 }
                             }]
                         });
@@ -48,11 +59,4 @@
                     }
                 }).render('#paypal-button-container');
             </script>
-        </div>
-    </div>
-</div>
-
-
-
-
-  @endsection
+@endsection

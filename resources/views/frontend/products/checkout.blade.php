@@ -25,55 +25,52 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-7">
                     <h5 class="mb-3">BILLING DETAILS</h5>
-                    <!-- Bill Detail of the Page -->
                     <form action="{{ route('products.process.checkout') }}" method="POST" class="bill-detail">
-                        @csrf
-                        <div class="form-group row">
-                            <div class="col">
-                                <input class="form-control" name="name" placeholder="Name" type="text" required>
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input class="form-control" name="name" placeholder="Name" type="text" required>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" name="last_name" placeholder="Last Name" type="text" required>
+                                </div>
                             </div>
-                            <div class="col">
-                                <input class="form-control" name="last_name" placeholder="Last Name" type="text" required>
+                            <div class="form-group">
+                                <textarea class="form-control" name="address" placeholder="Address" required></textarea>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="address" placeholder="Address" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="town" placeholder="Town / City" type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="state" placeholder="State / Country" type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="zip_code" placeholder="Postcode / Zip" type="text" required>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col">
-                                <input class="form-control" name="email" placeholder="Email Address" type="email" required>
+                            <div class="form-group">
+                                <input class="form-control" name="town" placeholder="Town / City" type="text" required>
                             </div>
-                            <div class="col">
-                                <input class="form-control" name="phone_number" placeholder="Phone Number" type="tel" required>
+                            <div class="form-group">
+                                <input class="form-control" name="state" placeholder="State / Country" type="text" required>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <input class="form-control" name="zip_code" placeholder="Postcode / Zip" type="text" required>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input class="form-control" name="email" placeholder="Email Address" type="email" required>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" name="phone_number" placeholder="Phone Number" type="tel" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input class="form-control" name="user_id" value="{{ Auth::user()->id }}" placeholder="user_id" type="text" readonly>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" name="price" value="{{ $checkoutSubtotal + 20 }}" placeholder="Total Price" type="text" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="order_notes" placeholder="Order Notes"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" name="submit" type="submit">Submit</button>
+                            </div>
+                        </form>
 
-                        <div class="form-group row">
-                            <div class="col">
-                                <input class="form-control" name="user_id" value="{{ Auth::user()->id }}" placeholder="user_id" type="text" readonly>
-                            </div>
-                            <div class="col">
-                                <input class="form-control" name="price" value="{{ $checkoutSubtotal + 20 }}" placeholder="Total Price" type="text" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <textarea class="form-control" name="order_notes" placeholder="Order Notes"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-primary" name="submit" type="submit">Submit</button>
-                        </div>
-                    </form>
                     <!-- Bill Detail of the Page end -->
                 </div>
 
