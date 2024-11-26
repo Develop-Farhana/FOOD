@@ -25,8 +25,11 @@ class ProductController extends Controller
         $products = Product::where('category_id', $id)
             ->orderBy('id', 'desc')
             ->get();
-
-        return view('frontend.products.single-category', compact('products'));
+            $vegetables = Product::where('category_id', 3)->orderBy('name', 'desc')->take(5)->get();
+            return view('frontend.products.single-category', [
+                'products' => $products,
+                'vegetables' => $vegetables,
+            ]);
     }
 
     // Method to show a single product and its related products
