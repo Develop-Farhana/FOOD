@@ -107,12 +107,12 @@
 
                                         <div class="card-body">
                                             <h4 class="card-title">
-                                                <a href="{{ route('product.detail', ['id' => $relatedProduct->id]) }}">{{$relatedProduct->name}}</a>
+                                                <a href="{{ route('single.product', ['id' => $relatedProduct->id]) }}">{{$relatedProduct->name}}</a>
                                             </h4>
                                             <div class="card-price">
                                                 <span class="reguler">Rp {{$relatedProduct->price}}</span>
                                             </div>
-                                            <a href="{{ route('product.detail', ['id' => $relatedProduct->id]) }}" class="btn btn-block btn-primary">
+                                            <a href="{{ route('single.product', ['id' => $relatedProduct->id]) }}" class="btn btn-block btn-primary">
                                                 Product Details
                                             </a>
                                         </div>
