@@ -30,7 +30,7 @@
       <tbody>
         @foreach ( $allAdmins as  $admin)
         <tr>
-          <th scope="row">{{$admin->id}}</th>
+        <th scope="row">{{ $loop->iteration }}</th>
           <td>{{$admin->name}}</td>
           <td>{{$admin->email}}</td>
         </tr>

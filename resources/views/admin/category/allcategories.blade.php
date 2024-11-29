@@ -54,7 +54,7 @@
       <tbody>
         @foreach ($allCategories as  $category)
             <tr>
-            <th scope="row">{{$category->id}}</th>
+            <th scope="row">{{ $loop->iteration }}</th>
             <td>{{$category->name}}</td>
             <td><a  href="{{route('categories.edit',$category->id)}}" class="btn btn-warning text-white text-center ">Update </a></td>
             <td><a href="{{route('categories.delete',$category->id)}}" class="btn btn-danger  text-center ">Delete </a></td>

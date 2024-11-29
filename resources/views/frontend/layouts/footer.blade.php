@@ -52,22 +52,10 @@
                          </li>
                      </ul>
                 </div>
-                <div class="col-md-3">
-                     <h5>Get Our App</h5>
-                     <ul class="mb-0">
-                         <li class="download-app">
-                             <a href="#"><img src="{{asset('frontend/img/playstore.png')}}"></a>
-                         </li>
-                         <li style="height: 200px">
-                             <div class="mockup">
-                                 <img src="{{asset('frontend/img/mockup.png')}}">
-                             </div>
-                         </li>
-                     </ul>
-                </div>
+
             </div>
         </div>
-        <p class="copyright">&copy; 2018 Freshcery | Groceries Organic Store. All rights reserved.</p>
+        <!-- <p class="copyright">&copy; 2018 Freshcery | Groceries Organic Store. All rights reserved.</p> -->
     </footer>
 
     <script type="text/javascript" src="{{asset('frontend/js/jquery.js')}}"></script>

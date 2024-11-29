@@ -41,15 +41,16 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($allProducts as $products )
-        <tr>
-          <th scope="row">1</th>
-          <td>{{$products->name}}</td>
-          <td>{{$products->price}}</td>
-          <td>{{$products->exp_date}}</td>
-           <td><a href="{{route('products.delete',$products->id)}}" class="btn btn-danger  text-center ">delete</a></td>
-        </tr>
+      @foreach ($allProducts as $products )
+            <tr>
+                <th scope="row">{{ $loop->iteration }}</th> <!-- This will add the counter -->
+                <td>{{ $products->name }}</td>
+                <td>{{ $products->price }}</td>
+                <td>{{ $products->exp_date }}</td>
+                <td><a href="{{ route('products.delete', $products->id) }}" class="btn btn-danger text-center">delete</a></td>
+            </tr>
         @endforeach
+
 
       </tbody>
     </table>
