@@ -10,3 +10,12 @@
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('frontend/packages/thumbelina/thumbelina.css')}}">
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('frontend/packages/bootstrap-touchspin/bootstrap-touchspin.css')}}">
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('frontend/css/theme.css')}}">
+
+    <style>
+    .card-img-top {
+    width: 100%; /* Ensures the image fills the card width */
+    height: 200px; /* Sets a fixed height for consistency */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    background-color: #f5f5f5; /* Optional: Add a neutral background color */
+}
+    </style>

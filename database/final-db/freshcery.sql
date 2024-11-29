@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2024 at 07:20 AM
+-- Generation Time: Nov 29, 2024 at 04:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -178,7 +178,15 @@ INSERT INTO `orders` (`id`, `name`, `last_name`, `address`, `town`, `state`, `em
 (5, 'ramu', 'aaaa', 'ftdhth', 'devtcz', 'aasdre', 'aaaa@gmail.com', '1234567789', '320', 3, 'ff', 'Proccessing', 1243, '2024-10-30 02:43:25', '2024-10-30 02:43:25'),
 (6, 'rimyaha', 'aa', 'dqwe', 'nbauy', 'nagaland', 'qqq@gmail.com', '1234567890', '320', 3, 'aadd', 'Proccessing', 33333, '2024-10-30 03:53:20', '2024-10-30 03:53:20'),
 (7, 'demo', 'aaaa', 'asddd', 'aaadf', 'enghj', 'aaf@gmail.com', '8998765434', '50', 3, 'asdd', 'Proccessing', 5675, '2024-10-30 03:58:10', '2024-10-30 03:58:10'),
-(8, 'ziya', 'eda', 'haloown prty house 008788,', 'Mumbai', 'sdyni', 'ff@gmail.com', '89765434', '50', 3, 'ffd', 'Proccessing', 3233, '2024-11-02 03:37:48', '2024-11-02 03:37:48');
+(8, 'ziya', 'eda', 'haloown prty house 008788,', 'Mumbai', 'sdyni', 'ff@gmail.com', '89765434', '50', 3, 'ffd', 'Proccessing', 3233, '2024-11-02 03:37:48', '2024-11-02 03:37:48'),
+(9, 'Nakia', 'Gleason V', '7211 Jewel Lake Rd', 'Anchorage', 'United States', 'abc@gmail.com', '907602-0209', '220', 7, 'no', 'Proccessing', 99502, '2024-11-26 02:11:28', '2024-11-26 02:11:28'),
+(10, 'new', 'aaa', 'aa', 'gg', 'ggpp', 'aa5@gmail.com', '545678909', '220', 7, 'vv', 'Proccessing', 1234, '2024-11-26 02:13:51', '2024-11-26 02:13:51'),
+(13, 'test', 'test', 'test', 'test', 'ttt', 'aa@gmail.com', '78654345', '240', 7, 'vv', 'Proccessing', 222, '2024-11-26 02:33:21', '2024-11-26 02:33:21'),
+(14, 'aa', 'aaa', 'ffff', 'aaa', 'ffff', 'aaa@ttyy.com', '1234567', '240', 7, 'vvv', 'Proccessing', 0, '2024-11-26 02:35:21', '2024-11-26 02:35:21'),
+(15, 'aa', 'aaa', 'ffff', 'aaa', 'ffff', 'aaa@ttyy.com', '1234567', '240', 7, 'vvv', 'Proccessing', 0, '2024-11-26 02:36:03', '2024-11-26 02:36:03'),
+(16, 'aa', 'aaa', 'ffff', 'aaa', 'ffff', 'aaa@ttyy.com', '1234567', '240', 7, 'vvv', 'Proccessing', 0, '2024-11-26 02:41:28', '2024-11-26 02:41:28'),
+(17, 'testing4', 'testing4', 'testing4', 'testing4', 'testing4', 'testing4@gg.com', '34223456', '400', 7, 'testing4', 'Proccessing', 999, '2024-11-26 02:57:25', '2024-11-26 02:57:25'),
+(18, 'dummy-1', 'dummy-1', 'dummy-1', 'dummy-1', 'dummy-1', 'dummy-1@rr.com', '123456789', '340', 7, 'dummy-1', 'Proccessing', 2345, '2024-11-26 03:05:50', '2024-11-26 03:05:50');
 
 -- --------------------------------------------------------
 
@@ -249,7 +257,21 @@ INSERT INTO `products` (`id`, `name`, `image`, `description`, `price`, `category
 (2, 'Apple', 'fruits.jpg', 'aaadF', 300, 4, '2024-09-26 17:09:28', '2024-09-26 17:09:28', '2026'),
 (4, 'Chicken', 'chicken.jpg', 'i love Chiken', 180, 1, '2024-09-28 10:59:31', '2024-09-28 10:59:31', '2025'),
 (6, 'Tomatoes', 'vegetables.jpg', 'i am vegooe', 100, 3, '2024-09-30 15:08:07', '2024-09-30 15:08:07', '2020'),
-(7, 'palpate', 'fish.jpg', ' this is good fish', 30, 2, '2024-10-01 07:04:40', '2024-10-01 07:04:40', '2021');
+(7, 'palpate', 'fish.jpg', ' this is good fish', 30, 2, '2024-10-01 07:04:40', '2024-10-01 07:04:40', '2021'),
+(11, 'Frires', 'deep.jpg', 'bjj', 66, 6, '2024-11-28 01:38:23', '2024-11-28 01:38:23', '2024'),
+(12, 'ptotao chips', 'chips.jpg', 'aaa', 12, 6, '2024-11-28 01:46:26', '2024-11-28 01:46:26', '2025'),
+(13, 'Cabbage', 'cabbage.jpg', 'houngj', 20, 3, '2024-11-29 02:14:48', '2024-11-29 02:14:48', '2025'),
+(14, 'Brinjal', 'brinjal.jpg', 'vvv', 20, 3, '2024-11-29 02:53:57', '2024-11-29 02:53:57', '2025'),
+(15, 'Flower', 'flower.jpg', 'asd', 33, 3, '2024-11-29 02:55:02', '2024-11-29 02:55:02', '2025'),
+(16, 'Chicken Chilli', 'chicken-chilli.jpg', 'sdf', 200, 1, '2024-11-29 09:23:04', '2024-11-29 09:23:04', '2025'),
+(17, 'chicken manchurain', 'manchu.jpg', 'aaa', 200, 1, '2024-11-29 09:24:24', '2024-11-29 09:24:24', '2024'),
+(18, 'soup', 'soup.jpg', 'jjj', 40, 1, '2024-11-29 09:30:03', '2024-11-29 09:30:03', '2024'),
+(19, 'Fish-fry', 'fish-fry.jpg', 'Tasty', 180, 2, '2024-11-29 09:44:14', '2024-11-29 09:44:14', '2024'),
+(20, 'Prawns', 'prwns.jpg', 'tasy', 200, 2, '2024-11-29 09:45:03', '2024-11-29 09:45:03', '2024'),
+(21, 'carbs', 'carbs.jpg', 'tatsyy', 20, 2, '2024-11-29 09:46:00', '2024-11-29 09:46:00', '2024'),
+(22, 'berry', 'berry.jpg', 'Tarty yumm', 235, 4, '2024-11-29 09:47:16', '2024-11-29 09:47:16', '2024'),
+(23, 'Orange', 'orange.jpg', 'aaa', 29, 4, '2024-11-29 09:48:25', '2024-11-29 09:48:25', '2024'),
+(24, 'dargon fruit', 'dragon.jpg', 'Dragon fruit, also known as pitaya, is a tropical fruit with a striking appearance and a sweet, mildly tangy flavor. It\'s native to the regions of southern Mexico and the Pacific coasts of Guatemala, Costa Rica, and El Salvador', 22, 4, '2024-11-29 09:49:54', '2024-11-29 09:49:54', '2024');
 
 -- --------------------------------------------------------
 
@@ -299,7 +321,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `address`, `town`, `state`, `zip_cod
 (3, 'amit', 'amit@example.com', '4546 SE McLoughlin Blvd 12', NULL, 'Oregon', 97202, 'images.png', 123456789, NULL, '$2y$10$LcI2zSHxrzuVMxV/ZTd9pegW3TSXRxvt2mY087rbbHyRSx1qIoccS', NULL, '2024-10-18 01:45:26', '2024-11-04 03:43:32'),
 (4, 'raajuu', 'raju@example.com', NULL, NULL, NULL, NULL, 'images.png', NULL, NULL, '$2y$10$QkrX8DM59VBUAIw2a/TjOuVnTzPjOZzOsLwKolsqokXBYT45mxVOu', NULL, '2024-11-09 03:09:20', '2024-11-09 03:09:20'),
 (5, 'dolly', 'dolly@example.com', NULL, NULL, NULL, NULL, 'images.png', NULL, NULL, '$2y$10$.x49WhUCOfqqNbJEw0RCZek4D.sAIVPRa9.no1UJSSB3no4iaptWe', NULL, '2024-11-09 03:13:24', '2024-11-09 03:13:24'),
-(6, 'sheri', 'ss@gmail.com', NULL, NULL, NULL, NULL, 'images.png', NULL, NULL, '$2y$10$m0mrrbBhr71vvDB8QzEFt.a8lJTECR6b3gAR5Rsy3oVEI.XfJ642C', NULL, '2024-11-14 07:58:47', '2024-11-14 07:58:47');
+(6, 'sheri', 'ss@gmail.com', NULL, NULL, NULL, NULL, 'images.png', NULL, NULL, '$2y$10$m0mrrbBhr71vvDB8QzEFt.a8lJTECR6b3gAR5Rsy3oVEI.XfJ642C', NULL, '2024-11-14 07:58:47', '2024-11-14 07:58:47'),
+(7, 'Sajju', 'sajju@gmail.com', NULL, NULL, NULL, NULL, 'images.png', NULL, NULL, '$2y$10$o/cunVef7KHwuX6zvu/0leeuRsd3INl43oikLupinAEsYrN6HxPBa', NULL, '2024-11-26 01:01:48', '2024-11-26 01:01:48');
 
 --
 -- Indexes for dumped tables
@@ -397,7 +420,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -421,7 +444,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -433,13 +456,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

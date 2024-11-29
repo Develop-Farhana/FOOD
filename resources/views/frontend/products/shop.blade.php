@@ -2,6 +2,16 @@
 @section('title', 'shop')
 
 @section('style')
+<style>
+   .card-img-top {
+    width: 100%; /* Ensures the image fills the card width */
+    height: 200px; /* Sets a fixed height for consistency */
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    background-color: #f5f5f5; /* Optional: Add a neutral background color */
+}
+
+
+</style>
 @endsection
 
 @section('content')
@@ -168,31 +178,30 @@
                                                 20% OFF
                                             </span>
                                         </div>
-                                        <img src="{{asset('frontend/img/'.$meat->image.'')}}" alt="Card image 2" class="card-img-top">
+                                        <img src="{{ $meat->image ? asset('frontend/img/'.$meat->image) : asset('frontend/img/placeholder.jpg') }}"
+                                            alt="Product Image"
+                                            class="card-img-top">
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">
                                             <a href="{{route('single.product',$meat->id)}}">{{$meat->name}}</a>
                                         </h4>
                                         <div class="card-price">
-                                            <!-- <span class="discount">Rp. 300.000</span> -->
                                             <span class="reguler">Rp.{{$meat->price}}</span>
                                         </div>
                                         <a href="{{route('single.product',$meat->id)}}" class="btn btn-block btn-primary">
-                                           Prodduct Details
+                                        Product Details
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-
-
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+</section>
+
 
         <section id="fishes" class="gray-bg">
             <div class="container">
