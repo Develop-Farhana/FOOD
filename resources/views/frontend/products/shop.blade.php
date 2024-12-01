@@ -20,7 +20,7 @@
             <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('../frontend/img/bg-header.jpg');">
                 <div class="container">
                     <h1 class="pt-5">
-                        Shopping Page
+                        Shopping Pages
                     </h1>
                     <p class="lead">
                         Save time and leave the groceries to us.
